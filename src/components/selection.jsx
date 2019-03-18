@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-class Voting extends Component {
-  constructor(props) {
-    super(props);
+class Select extends Component {
+  constructor() {
+    super();
     this.state = {
       selected: ""
     };
@@ -11,19 +11,19 @@ class Voting extends Component {
   render() {
     return (
       <div className="form-group">
-        <label htmlFor="candidateSelection">Select a Candidate</label>
+        <label>Select a Candidate</label>
         <select
           value={this.state.selected}
           onChange={e => {
-            this.setState({ selected: e.target.value });
             this.props.selectCandidate(e.target.value);
+            this.setState({ selected: e.target.value });
           }}
           className="form-control"
         >
-          <option value="" key="" />
-          {this.props.candidates.map((candidate, key) => {
+          <option value={""} key="" />
+          {this.props.candidates.map(candidate => {
             return (
-              <option value={key} key={key}>
+              <option value={candidate.id} key={candidate.id}>
                 {candidate.name}
               </option>
             );
@@ -34,4 +34,4 @@ class Voting extends Component {
   }
 }
 
-export default Voting;
+export default Select;

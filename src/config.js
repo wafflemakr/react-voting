@@ -1,4 +1,4 @@
-export const contractAddress = "0x588b535bc6574895c7e8BBA7a59Bb58a8aec5444";
+export const contractAddress = "0xb76b7e60B9B3BaC1D9C82B64E63e0F947182F4A4";
 export const abi = [
   {
     constant: true,
@@ -104,6 +104,26 @@ export const abi = [
     signature: "0xa3ec138d"
   },
   {
+    constant: true,
+    inputs: [
+      {
+        name: "",
+        type: "address"
+      }
+    ],
+    name: "approved",
+    outputs: [
+      {
+        name: "",
+        type: "bool"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function",
+    signature: "0xd8b964e6"
+  },
+  {
     constant: false,
     inputs: [
       {
@@ -132,12 +152,69 @@ export const abi = [
         indexed: true,
         name: "_candidateId",
         type: "uint8"
+      },
+      {
+        indexed: false,
+        name: "_voter",
+        type: "address"
       }
     ],
     name: "Voted",
     type: "event",
     signature:
-      "0x7093329465ed557bd14ccfc262717be13ddd1773b2a8307dd8560299717a87b3"
+      "0xe26d09013db5853436d0e069f2b5af3caf6c53a61021da4166867166f7c90f9a"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        name: "_id",
+        type: "uint256"
+      },
+      {
+        indexed: false,
+        name: "_voter",
+        type: "address"
+      }
+    ],
+    name: "RequestApproval",
+    type: "event",
+    signature:
+      "0xd777e646ae2393d6ea64a856295cf8f73625cd338c0536225d005892f8500995"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        name: "_voter",
+        type: "address"
+      }
+    ],
+    name: "VoterApproved",
+    type: "event",
+    signature:
+      "0x85e209912e11195144f49695f608785c8a31876f9d5d831813c396126a21b484"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        name: "_candidateId",
+        type: "uint8"
+      },
+      {
+        indexed: false,
+        name: "_name",
+        type: "string"
+      }
+    ],
+    name: "CandidateAdded",
+    type: "event",
+    signature:
+      "0xca917e5bbbc18d5359674a32cef84c888a6855d48b99d9e65e1a688707dff5c7"
   },
   {
     anonymous: false,
@@ -172,6 +249,36 @@ export const abi = [
     stateMutability: "nonpayable",
     type: "function",
     signature: "0x462e91ec"
+  },
+  {
+    constant: false,
+    inputs: [
+      {
+        name: "_voterID",
+        type: "uint256"
+      }
+    ],
+    name: "registerVoter",
+    outputs: [],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function",
+    signature: "0xa13f2f8d"
+  },
+  {
+    constant: false,
+    inputs: [
+      {
+        name: "_approvedAddr",
+        type: "address"
+      }
+    ],
+    name: "approveVoter",
+    outputs: [],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function",
+    signature: "0x119d4ddb"
   },
   {
     constant: false,
