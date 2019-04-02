@@ -8,6 +8,7 @@ class Register extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onRegister(this.state.value);
+    this.setState({ value: "" });
   };
 
   render() {
