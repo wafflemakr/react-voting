@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/react-voting/static/js/runtime~main.2bdb5f4b.js"
   },
   {
-    "revision": "940adf3cb583ee710b36",
-    "url": "/react-voting/static/js/main.60dc1bff.chunk.js"
+    "revision": "2ffd1503fe45effd36db",
+    "url": "/react-voting/static/js/main.e2575d46.chunk.js"
   },
   {
     "revision": "b21d183a6ed5b7970c98",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/react-voting/static/css/2.2bf9a32d.chunk.css"
   },
   {
-    "revision": "870a15b6834c615732ecdfe947a1332a",
+    "revision": "f08e7e8be2a8d0e4b7a84c2bf77e55be",
     "url": "/react-voting/index.html"
   }
 ];
