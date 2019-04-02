@@ -1,7 +1,10 @@
 const HDWalletProvider = require("truffle-hdwallet-provider");
 require("dotenv").config();
 
+const fullPathBuildDirectory = `${__dirname}/contracts/build`;
+
 module.exports = {
+  contracts_build_directory: fullPathBuildDirectory,
   networks: {
     //Local ganache-cli
     development: {

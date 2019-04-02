@@ -6,13 +6,12 @@ class Results extends Component {
   render() {
     return (
       <div>
-        <div className="container m-4" hidden={this.props.voting}>
+        <div className="container p-3" hidden={this.props.voting}>
           <div className="row">
             <div className="col-lg-12">
               <br />
               <br />
               <h1 className="text-center">Voting Results</h1>
-              <hr />
               <br />
 
               <div id="content">
@@ -52,21 +51,20 @@ class Results extends Component {
                 </button>
                 <div id="txState" />
                 <hr />
+                <p
+                  className="text-center m-2"
+                  id="voter"
+                  hidden={!this.props.connected}
+                >
+                  Voting from: {this.props.account}
+                </p>
               </div>
             </div>
-            <p
-              id="voter"
-              className="text-center"
-              hidden={!this.props.connected}
-            >
-              Voting from: {this.props.account}
-            </p>
+
             <br />
           </div>
-          <div>
-            <h5 className="text-center m-2">
-              Powered by Blockchain Technology.
-            </h5>
+          <div className="text-center m-3">
+            <h5>Powered by Blockchain Technology.</h5>
             <center>
               <a
                 target="_blank"

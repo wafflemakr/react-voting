@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import Register from "./register";
-import Results from "./results";
-import Latest from "./latest";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Web3 from "web3";
 import { abi, contractAddress } from "../config";
 
+// Import Components
+import Register from "./register";
+import Results from "./results";
+import Latest from "./latest";
+
 class App extends Component {
   constructor() {
-    console.log("contructor");
     super();
     this.state = {
       registerId: "",
@@ -25,12 +26,7 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
-    this.loadWeb3();
-  }
-
   async loadWeb3() {
-    console.log("loadweb3");
     const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
     const network = await web3.eth.net.getNetworkType();
     console.log("Network:", network);
@@ -42,42 +38,51 @@ class App extends Component {
 
     const totalCandidates = await votingApp.methods.totalCandidates().call();
 
-    let candidates = [...this.state.candidates];
+    let candidates = [];
+
     for (let i = 1; i <= totalCandidates; i++) {
       let candidate = await votingApp.methods.candidates(i).call();
-      candidates = [...candidates, candidate];
+      candidates.push(candidate);
     }
-
-    this.setState({ events: [] });
-
-    const events = await votingApp.getPastEvents("allEvents", {
-      fromBlock: 0,
-      toBlock: "latest"
-    });
-
-    console.log("before setting state");
 
     this.setState({
       connected: true,
-      events,
       candidates,
       totalCandidates,
       account: acc[0],
       votingApp
     });
 
-    console.log("web3 ended");
+    if (this.state.votingApp) this.loadEvents();
+  }
+
+  loadEvents() {
+    this.state.votingApp
+      .getPastEvents("allEvents", {
+        fromBlock: 4053116,
+        toBlock: "latest"
+      })
+      .then(events => {
+        this.setState({
+          events
+        });
+      });
+  }
+
+  componentWillMount() {
+    this.loadWeb3();
   }
 
   componentDidMount() {
-    console.log("component did mount");
     setInterval(() => {
       const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
       web3.eth.getAccounts().then(acc => {
         //if there is at least one account
         if (acc.length > 0) {
+          // if account changes
           if (acc[0] !== this.state.account) {
-            this.setState({ account: acc[0], connected: true });
+            this.setState({ account: acc[0] });
+            //this.loadWeb3();
           }
         } else {
           this.setState({ connected: false, account: "" });
@@ -88,14 +93,12 @@ class App extends Component {
 
   latest = () => {
     if (this.state.connected) {
-      console.log("latest rendered");
       return <Latest events={this.state.events} />;
     } else return null;
   };
 
   register = () => {
     if (this.state.connected) {
-      console.log("register rendered");
       return (
         <Register
           onRegister={id => this.handleRegister(id)}
@@ -107,7 +110,6 @@ class App extends Component {
 
   results = () => {
     if (this.state.connected) {
-      console.log("results rendered");
       return (
         <Results
           account={this.state.account}
@@ -135,7 +137,6 @@ class App extends Component {
   };
 
   vote = () => {
-    console.log("vote");
     this.state.votingApp.methods
       .approved(this.state.account)
       .call()
@@ -176,7 +177,6 @@ class App extends Component {
   };
 
   candidateName = () => {
-    console.log("candidate name calc");
     if (this.state.candidates) {
       const candidate = this.state.candidates.filter(
         c => c.id === this.state.selected
@@ -188,7 +188,6 @@ class App extends Component {
   };
 
   render() {
-    console.log("app render fx");
     return (
       <Router>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
