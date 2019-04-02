@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/react-voting/static/css/2.2bf9a32d.chunk.css"
   },
   {
-    "revision": "9b9cb131794035f8de1ebeb87c285689",
+    "revision": "c72ced2e56b2db3935c0afef8a68d55d",
     "url": "/react-voting/index.html"
   }
 ];
