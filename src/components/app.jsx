@@ -191,20 +191,38 @@ class App extends Component {
     return (
       <Router>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="#home">Voting App</Navbar.Brand>
+          <Navbar.Brand href="/">Voting App</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/">Voting Results</Nav.Link>
-              <Nav.Link href="/register">Register</Nav.Link>
-              <Nav.Link href="/latest">Latest Events</Nav.Link>
+              <Nav.Link href={`${process.env.PUBLIC_URL}/`}>
+                Voting Results
+              </Nav.Link>
+              <Nav.Link href={`${process.env.PUBLIC_URL}/register`}>
+                Register
+              </Nav.Link>
+              <Nav.Link href={`${process.env.PUBLIC_URL}/latest`}>
+                Latest Events
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
 
-        <Route exact path="/register" component={this.register} />
-        <Route exact path="/latest" component={this.latest} />
-        <Route exact path="/" component={this.results} />
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/register`}
+          component={this.register}
+        />
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/latest`}
+          component={this.latest}
+        />
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/`}
+          component={this.results}
+        />
       </Router>
     );
   }

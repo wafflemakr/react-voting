@@ -2,7 +2,11 @@
 
 React Blockchain Application to vote for certain candidates, register voters ID and show latest contract events.
 
-## Before you start
+## Use the App!
+
+App is currrently hosted in Github Pages. Link: [Voting APP](https://wafflemakr.github.io/react-voting/)
+
+## To generate your own code
 
 Clone this repository and run the command:
 
@@ -12,7 +16,9 @@ This will download the required dependencies of the application.
 
 ## Available Scripts
 
-In the project directory, you can run:
+You can edit the components inside the /src folder, as well as the solidity contracts inside the /contracts folder. If you change the smart contract, you will have to run migrations again. Then, copy the ABI content generated inside /contracts/build/App.json and the contract Address to the src/config.js file.
+
+Finally, in the project directory, you can run:
 
 ### `npm start`
 
