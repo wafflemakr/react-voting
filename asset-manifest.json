@@ -1,13 +1,13 @@
 {
-  "main.js": "/react-voting/static/js/main.2911f5a9.chunk.js",
-  "main.js.map": "/react-voting/static/js/main.2911f5a9.chunk.js.map",
+  "main.js": "/react-voting/static/js/main.60dc1bff.chunk.js",
+  "main.js.map": "/react-voting/static/js/main.60dc1bff.chunk.js.map",
   "runtime~main.js": "/react-voting/static/js/runtime~main.2bdb5f4b.js",
   "runtime~main.js.map": "/react-voting/static/js/runtime~main.2bdb5f4b.js.map",
   "static/css/2.2bf9a32d.chunk.css": "/react-voting/static/css/2.2bf9a32d.chunk.css",
-  "static/js/2.17d79d15.chunk.js": "/react-voting/static/js/2.17d79d15.chunk.js",
-  "static/js/2.17d79d15.chunk.js.map": "/react-voting/static/js/2.17d79d15.chunk.js.map",
+  "static/js/2.f66d430c.chunk.js": "/react-voting/static/js/2.f66d430c.chunk.js",
+  "static/js/2.f66d430c.chunk.js.map": "/react-voting/static/js/2.f66d430c.chunk.js.map",
   "index.html": "/react-voting/index.html",
-  "precache-manifest.6d3c92e35bf587c2e41bdd53de648749.js": "/react-voting/precache-manifest.6d3c92e35bf587c2e41bdd53de648749.js",
+  "precache-manifest.cc136aa204da5f1332fa301b30d03092.js": "/react-voting/precache-manifest.cc136aa204da5f1332fa301b30d03092.js",
   "service-worker.js": "/react-voting/service-worker.js",
   "static/css/2.2bf9a32d.chunk.css.map": "/react-voting/static/css/2.2bf9a32d.chunk.css.map"
 }
